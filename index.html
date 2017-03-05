@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="https://mapzen.com/common/styleguide/styles/styleguide.css">
+<link rel="stylesheet" href="styles.css" />
+<body>
+  <div class="controls">
+  	<a id="exportify" class="btn btn-mapzen">Export to SVG</a>
+	<div class="form-group inline-submit">
+		<input type="search" id="search-text" placeholder="type in a place">
+		<input type="submit" id="search-submit" value="search" class="btn btn-transparent">
+	</div>
+    <h4>Choose what to display:</h4>
+    <ul class="layer-toggle"></ul>
+  </div>
+<script src="d3.v3.min.js"></script>
+<script src="d3.geo.tile.v0.min.js"></script>
+<script src="https://cdn.rawgit.com/mbostock/topojson/3ed6ee9e04d4/topojson.js"></script>
+<script src='//s3.amazonaws.com/assets-staging.mapzen.com/ui/components/bug/bug.min.js'></script>
+<script type='text/javascript'>
+  window.bugTitle = 'Exporting map tiles to SVG';
+</script>
+<script src="index.js"></script>
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoieWluZ21hbnIiLCJhIjoiY2l6d290dXR5MDAwZzJxbzB0bnI0dnZqNyJ9.DsMPlmBd1ukW5r8hojzUxQ';
+var map = L.mapbox.map('map')
+    .setView([38.97416, -95.23252], 15);
+
+// Use styleLayer to add a Mapbox style created in Mapbox Studio
+L.mapbox.styleLayer('mapbox://styles/yingmanr/cizwigva5004m2smw698wnqin').addTo(map);
+</script>
